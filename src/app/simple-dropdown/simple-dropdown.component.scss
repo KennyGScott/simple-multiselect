@@ -1,6 +1,8 @@
 $pad: 12px;
 $check-size: 20px;
-
+$pogo-green: #96c93c;
+$light-gray: #ccc;
+$dark-gray: #aaa;
 .sdd-container {
   display: block;
   position: relative;
@@ -12,14 +14,13 @@ $check-size: 20px;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  border: 1px solid #ccc;
-  position: relative;
+  border: 1px solid $light-gray;
   background: #fff;
 }
 
 .sdd-container:hover {
   z-index: 2;
-  border-color: #aaa;
+  border-color: $dark-gray;
 }
 
 .sdd-container input {
@@ -37,19 +38,27 @@ $check-size: 20px;
   height: $check-size;
   width: $check-size;
   border-radius: 2px;
-  background-color: #eee;
+  background-color: #ededed;
   transform: translateY(-50%);
   transition: all 0.2s ease-out;
+  border: 1px solid transparent
 }
 
 .sdd-container:hover input ~ .sdd-check {
-  background-color: #ccc;
+  background-color: $light-gray;
+  border-color: $dark-gray;
 }
 
 .sdd-container input:checked ~ .sdd-check {
-  background-color: #96c93c;
+  background-color: $pogo-green;
+}
+.sdd-container:hover input:checked ~ .sdd-check {
+  border-color: $pogo-green;
 }
 
+.sdd-container input:checked ~ .sdd-check {
+  border-color: $pogo-green;
+}
 .sdd-check:after {
   content: "";
   position: absolute;
