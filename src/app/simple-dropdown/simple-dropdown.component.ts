@@ -22,15 +22,16 @@ export class SimpleDropdownComponent {
 
   clickHandler(item, event) {
     const checked = event.target.checked;
-    const index = this.outputArray.indexOf(item);
+    const output = this.outputArray;
+    const index = output.indexOf(item);
     if (checked === true) {
-      this.outputArray.push(item);
+      output.push(item);
     } else {
       if (index !== -1) {
-        this.outputArray.splice(index, 1);
+        output.splice(index, 1);
       }
     }
-    this.selected.emit(this.outputArray);
+    this.selected.emit(output);
   }
 
 }
