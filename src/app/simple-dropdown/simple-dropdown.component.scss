@@ -1,0 +1,63 @@
+.sdd-container {
+  display: block;
+  position: relative;
+  padding: 10px;
+  padding-left: 40px;
+  margin-bottom: -1px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid #ccc;
+}
+.sdd-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.sdd-check {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  height: 1em;
+  width: 1em;
+  padding: 2px;
+  background-color: #eee;
+  transform: translateY(-50%);
+  transition: all .2s ease-out;
+}
+
+.sdd-container:hover input ~ .sdd-check {
+  background-color: #ccc;
+}
+
+.sdd-container input:checked ~ .sdd-check {
+  background-color: #2196F3;
+}
+
+.sdd-check:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.sdd-container input:checked ~ .sdd-check:after {
+  display: block;
+}
+
+.sdd-container .sdd-check:after {
+  top: 2px;
+  left: 6px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+

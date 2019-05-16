@@ -1,0 +1,12 @@
+<div class="simple-dropdown">
+  <ng-container *ngFor="let item of data">
+    <div>
+      <label class="sdd-container">{{ item[titleKey] }}
+        <input class="sdd-checkbox"
+               type="checkbox"
+               (change)="clickHandler(item, $event)" />
+        <span class="sdd-check"></span>
+      </label>
+    </div>
+  </ng-container>
+</div>
