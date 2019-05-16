@@ -21,8 +21,9 @@ export class SimpleDropdownComponent {
   }
 
   clickHandler(item, event) {
+    const checked = event.target.checked;
     const index = this.outputArray.indexOf(item);
-    if (event.target.checked === true) {
+    if (checked === true) {
       this.outputArray.push(item);
     } else {
       if (index !== -1) {
