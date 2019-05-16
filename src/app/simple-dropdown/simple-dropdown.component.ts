@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -7,9 +7,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./simple-dropdown.component.scss']
 })
 
-export class SimpleDropdownComponent implements OnInit {
-  @Input() data: Array<any>;
+export class SimpleDropdownComponent {
+  @Input() data: Array<object>;
+  @Input() filterOptions: Array<any>;
+  @Input() filterBy: string;
   @Input() titleKey: string;
+
   @Output() selected = new EventEmitter();
 
   private outputArray: Array<any>;
@@ -27,9 +30,6 @@ export class SimpleDropdownComponent implements OnInit {
       }
     }
     this.selected.emit(this.outputArray);
-  }
-
-  ngOnInit() {
   }
 
 }
