@@ -10,6 +10,11 @@
   -ms-user-select: none;
   user-select: none;
   border: 1px solid #ccc;
+  position: relative;
+}
+.sdd-container:hover {
+  z-index: 2;
+  border-color: #aaa
 }
 .sdd-container input {
   position: absolute;
