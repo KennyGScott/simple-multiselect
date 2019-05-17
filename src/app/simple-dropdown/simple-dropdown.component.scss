@@ -3,6 +3,12 @@ $check-size: 20px;
 $pogo-green: #96c93c;
 $light-gray: #ccc;
 $dark-gray: #aaa;
+
+
+
+
+
+/* CHECKBOX */
 .sdd-container {
   display: block;
   position: relative;
@@ -15,12 +21,14 @@ $dark-gray: #aaa;
   -ms-user-select: none;
   user-select: none;
   border: 1px solid $light-gray;
-  background: #fff;
+  background-color: #fff;
+  transition: background-color .25s ease-out
 }
 
 .sdd-container:hover {
   z-index: 2;
   border-color: $dark-gray;
+  background-color: lightgray;
 }
 
 .sdd-container input {
@@ -45,7 +53,7 @@ $dark-gray: #aaa;
 }
 
 .sdd-container:hover input ~ .sdd-check {
-  background-color: $light-gray;
+  background-color: #fff;
   border-color: $dark-gray;
 }
 
