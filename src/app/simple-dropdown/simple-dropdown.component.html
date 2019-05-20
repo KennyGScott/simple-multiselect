@@ -1,15 +1,10 @@
 <div class="simple-dropdown">
-  <ng-container *ngIf="filterOptions">
-    <select (change)="filterEventHandler($event)">
-      <option *ngFor="let option of filterOptions" [value]="option[filterKey]">{{ option['filterTitle']}}</option>
-    </select>
-  </ng-container>
   <ng-container *ngFor="let item of options">
     <div>
       <label class="sdd-container">{{ item[titleKey] }}
         <input class="sdd-checkbox"
                type="checkbox"
-               (change)="clickHandler(item, $event)" />
+               (change)="checkHandler(item)" />
         <span class="sdd-check"></span>
       </label>
     </div>

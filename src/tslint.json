@@ -10,6 +10,9 @@
       "camelCase"
     ],
     "component-selector": false,
-    "triple-equals": false
+    "triple-equals": false,
+    "curly": false,
+    "no-string-literal": false,
+    "semicolon": false
   }
 }
