@@ -1,3 +1,4 @@
-<simple-dropdown [data]="Course.zones"
-                 (selected)="log($event)"
-                 titleKey="name"></simple-dropdown>
+<simple-multiselect [data]="Course.zones"
+                    [filterSettings]="filterSettings"
+                    titleKey="name"
+                    (selected)="log($event)"></simple-multiselect>

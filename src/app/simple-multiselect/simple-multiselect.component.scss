@@ -5,11 +5,8 @@ $light-gray: #ccc;
 $dark-gray: #aaa;
 
 
-
-
-
 /* CHECKBOX */
-.sdd-container {
+.sms-container {
   display: block;
   position: relative;
   padding: $pad;
@@ -25,13 +22,13 @@ $dark-gray: #aaa;
   transition: background-color .25s ease-out
 }
 
-.sdd-container:hover {
+.sms-container:hover {
   z-index: 2;
   border-color: $dark-gray;
   background-color: lightgray;
 }
 
-.sdd-container input {
+.sms-container input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -39,7 +36,7 @@ $dark-gray: #aaa;
   width: 0;
 }
 
-.sdd-check {
+.sms-check {
   position: absolute;
   top: 50%;
   left: $pad;
@@ -52,32 +49,32 @@ $dark-gray: #aaa;
   border: 1px solid transparent
 }
 
-.sdd-container:hover input ~ .sdd-check {
+.sms-container:hover input ~ .sms-check {
   background-color: #fff;
   border-color: $dark-gray;
 }
 
-.sdd-container input:checked ~ .sdd-check {
+.sms-container input:checked ~ .sms-check {
   background-color: $pogo-green;
 }
-.sdd-container:hover input:checked ~ .sdd-check {
+.sms-container:hover input:checked ~ .sms-check {
   border-color: $pogo-green;
 }
 
-.sdd-container input:checked ~ .sdd-check {
+.sms-container input:checked ~ .sms-check {
   border-color: $pogo-green;
 }
-.sdd-check:after {
+.sms-check:after {
   content: "";
   position: absolute;
   display: none;
 }
 
-.sdd-container input:checked ~ .sdd-check:after {
+.sms-container input:checked ~ .sms-check:after {
   display: block;
 }
 
-.sdd-container .sdd-check:after {
+.sms-container .sms-check:after {
   transform: rotate(-45deg) scale(0.8);
   top: 4px;
   left: 3px;

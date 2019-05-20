@@ -1,0 +1,27 @@
+<div class="simple-multiselect">
+  <div *ngIf="!!filterSettings">
+    <select [(ngModel)]="selectedFilter">
+      <option value="all" selected="true">Show All</option>
+      <option *ngFor="let option of filterSettings.options" [value]="option[filterSettings.filterBy]">{{option[filterSettings.label]}}</option>
+    </select>
+  </div>
+  <div>
+    <label class="sms-container">Select/Deselect all
+      <input class="sms-checkbox"
+             type="checkbox"
+             (change)="handleAll()" />
+      <span class="sms-check"></span>
+    </label>
+  </div>
+  <ng-container *ngFor="let option of options">
+    <div *ngIf="selectedFilter == option[filterSettings.filterKey] || selectedFilter == 'all'">
+      <label class="sms-container">{{ option[titleKey] }}
+        <input class="sms-checkbox"
+               type="checkbox"
+               (change)="checkHandler(option)"
+               [checked]="checkAll" />
+        <span class="sms-check"></span>
+      </label>
+    </div>
+  </ng-container>
+</div>

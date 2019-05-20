@@ -3,7 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { SimpleDropdownModule } from './simple-dropdown/simple-dropdown.module';
+import { SimpleMultiselectModule } from './simple-multiselect/simple-multiselect.module';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { SimpleDropdownModule } from './simple-dropdown/simple-dropdown.module';
   ],
   imports: [
     BrowserModule,
-    SimpleDropdownModule,
+    SimpleMultiselectModule,
     FormsModule
   ],
   providers: [],

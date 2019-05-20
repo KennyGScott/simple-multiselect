@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "simple-dropdown": {
+    "simple-multiselect": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/simple-dropdown",
+            "outputPath": "dist/simple-multiselect",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "simple-dropdown:build"
+            "browserTarget": "simple-multiselect:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "simple-dropdown:build:production"
+              "browserTarget": "simple-multiselect:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "simple-dropdown:build"
+            "browserTarget": "simple-multiselect:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "simple-dropdown-e2e": {
+    "simple-multiselect-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "simple-dropdown:serve"
+            "devServerTarget": "simple-multiselect:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "simple-dropdown:serve:production"
+              "devServerTarget": "simple-multiselect:serve:production"
             }
           }
         },
@@ -136,5 +136,5 @@
       }
     }
   },
-  "defaultProject": "simple-dropdown"
+  "defaultProject": "simple-multiselect"
 }
