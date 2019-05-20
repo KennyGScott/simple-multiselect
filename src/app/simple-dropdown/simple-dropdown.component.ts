@@ -25,9 +25,7 @@ export class SimpleDropdownComponent implements OnInit {
    * @param selected optional - manually overrides current value of item.selected
    */
   initOptions(selected: boolean = false) {
-    // copy input data
     this.options = this.data.slice()
-    // add flag to each item for tracking selected objects
     for (let i = this.options.length; i--;)
       this.options[i]['selected'] = selected
   }
