@@ -10,50 +10,39 @@ export class SimpleDropdownComponent implements OnInit {
   @Input() data: Array<object>
   @Input() titleKey: string
   @Input() type: string
-
   @Output() selected = new EventEmitter()
 
-  private selectedOptions: Array<object>
-  private outputArray: Array<object>
-  public isChecked = false
-  public options: Array<object>
+  public options;
+  public checkAll = false;
 
   constructor() {
     this.type = (this.type) ? this.type : 'checkbox'
-    this.outputArray = []
   }
 
   ngOnInit() {
     this.initOptions()
   }
 
-  initOptions() {
+  initOptions(selected: boolean = false) {
     this.options = this.data.slice()
-
     for (let i = this.options.length; i--;)
-      this.options[i]['selected'] = false
-
-    this.selectedOptions = []
+      this.options[i]['selected'] = selected
   }
 
   checkHandler(item) {
-    const output = this.outputArray
-    const index = output.indexOf(item)
     const selected = !item.selected
-
     item.selected = selected
+    this.returnData();
+  }
 
-    if (selected)
-      output.push(item)
-    else
-      if (index != -1)
-        output.splice(index, 1)
-
-    this.selectedOptions = output
-    this.returnData()
+  handleAll() {
+    this.checkAll = !this.checkAll
+    this.initOptions(this.checkAll)
+    this.returnData();
   }
 
   returnData() {
-    this.selected.emit(this.selectedOptions)
+    const selectedOptions = this.options.filter((opt) => opt.selected == true)
+    this.selected.emit(selectedOptions)
   }
 }

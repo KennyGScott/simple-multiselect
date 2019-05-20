@@ -1,12 +1,22 @@
 <div class="simple-dropdown">
+    <div>
+        <label class="sdd-container">Select/Deselect all
+          <input class="sdd-checkbox"
+                 type="checkbox"
+                 (change)="handleAll()"/>
+          <span class="sdd-check"></span>
+        </label>
+      </div>
   <ng-container *ngFor="let item of options">
     <div>
       <label class="sdd-container">{{ item[titleKey] }}
         <input class="sdd-checkbox"
                type="checkbox"
-               (change)="checkHandler(item)" />
+               (change)="checkHandler(item)"
+               [checked]="checkAll" />
         <span class="sdd-check"></span>
       </label>
     </div>
+
   </ng-container>
 </div>
