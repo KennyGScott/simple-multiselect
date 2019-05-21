@@ -21,7 +21,7 @@
         <input class="sms-checkbox"
                type="checkbox"
                (change)="checkHandler(option)"
-               [checked]="checkAll" />
+               [checked]="checkAll || option.selected" />
         <span class="sms-check"></span>
       </label>
     </div>
