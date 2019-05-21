@@ -66,7 +66,7 @@ export class SimpleMultiselectComponent implements OnInit {
    */
   handleFilter() {
     this.checkAll = false
-    this.initOptions()
+    this.initOptions(true)
     if (this.selectedFilter !== 'all') {
       this.filteredOptions = this.options.filter((option) => option[this.filterSettings.filterKey] == this.selectedFilter)
       this.initOptions(false, true)
