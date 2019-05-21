@@ -23,8 +23,9 @@ export class SimpleMultiselectComponent implements OnInit {
   public options
   public checkAll = false
   public selectedFilter: any = 'all'
+  public searchText = ''
   private filteredOptions
-
+  private isFiltered = false
   ngOnInit() {
     this.initOptions()
   }
@@ -61,6 +62,11 @@ export class SimpleMultiselectComponent implements OnInit {
     this.returnData()
   }
 
+  handleSearch(event){
+    this.initOptions()
+    if (this.searchText !== '')
+      this.options = this.options.filter(option => option[this.titleKey].toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
+  }
   /**
    * @method handleFilter handle the filtering of options
    */
@@ -68,6 +74,7 @@ export class SimpleMultiselectComponent implements OnInit {
     this.checkAll = false
     this.initOptions()
     if (this.selectedFilter !== 'all') {
+      this.isFiltered = true
       this.filteredOptions = this.options.filter((option) => option[this.filterSettings.filterKey] == this.selectedFilter)
       this.initOptions(false, true)
     }

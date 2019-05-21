@@ -18,16 +18,16 @@ export class AppComponent {
 
   public Course = {
     zones: [
-      { id: 32, golf_course_id: 117, name: '01 Green', zone_id: 1, zone_type: 'Green' },
-      { id: 79, golf_course_id: 117, name: '02 Green', zone_id: 3, zone_type: 'Fairway' },
-      { id: 91, golf_course_id: 117, name: '03 Green', zone_id: 2, zone_type: 'Field' },
+      { id: 32, golf_course_id: 117, name: 'Green AOne', zone_id: 1, zone_type: 'Green' },
+      { id: 79, golf_course_id: 117, name: 'Green Only', zone_id: 3, zone_type: 'Fairway' },
+      { id: 91, golf_course_id: 117, name: '03 Green ano noone', zone_id: 2, zone_type: 'Field' },
       { id: 49, golf_course_id: 117, name: '04 Green', zone_id: 1, zone_type: 'Green' },
       { id: 70, golf_course_id: 999, name: '05 Green', zone_id: 2, zone_type: 'Field' },
       { id: 59, golf_course_id: 117, name: '06 Green', zone_id: 3, zone_type: 'Fairway' },
       { id: 54, golf_course_id: 999, name: '07 Green', zone_id: 3, zone_type: 'Fairway' },
       { id: 18, golf_course_id: 117, name: '08 Green', zone_id: 3, zone_type: 'Fairway' },
       { id: 31, golf_course_id: 117, name: '09 Green', zone_id: 3, zone_type: 'Fairway' },
-      { id: 79, golf_course_id: 117, name: '10 Green', zone_id: 3, zone_type: 'Fairway' },
+      { id: 79, golf_course_id: 117, name: 'EGreen', zone_id: 3, zone_type: 'Fairway' },
       { id: 86, golf_course_id: 999, name: '11 Green', zone_id: 2, zone_type: 'Field' },
       { id: 32, golf_course_id: 117, name: '12 Green', zone_id: 3, zone_type: 'Fairway' },
       { id: 68, golf_course_id: 999, name: '13 Green', zone_id: 3, zone_type: 'Fairway' },
