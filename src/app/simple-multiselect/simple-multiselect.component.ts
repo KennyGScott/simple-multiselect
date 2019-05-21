@@ -62,13 +62,17 @@ export class SimpleMultiselectComponent implements OnInit {
     this.returnData()
   }
 
-  handleSearch(event){
+  /**
+   * @method handleSearch handles the filtering of options via user search
+   */
+  handleSearch() {
     this.initOptions()
     if (this.searchText !== '')
       this.options = this.options.filter(option => option[this.titleKey].toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
   }
+
   /**
-   * @method handleFilter handle the filtering of options
+   * @method handleFilter handle the filtering of options via predefined list
    */
   handleFilter() {
     this.checkAll = false
