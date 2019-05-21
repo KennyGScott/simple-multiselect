@@ -1,5 +1,6 @@
 <div class="simple-multiselect">
   <div *ngIf="!!filterSettings">
+    <h3>{{ filterSettings.filterTitle }}</h3>
     <select [(ngModel)]="selectedFilter" (change)="handleFilter()">
       <option value="all" selected="true">Show All</option>
       <option *ngFor="let option of filterSettings.options" [value]="option[filterSettings.filterBy]">{{option[filterSettings.label]}}</option>

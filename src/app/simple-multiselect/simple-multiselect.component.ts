@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 export interface ISimpleMultiselectFilterSettings {
   options?: Array<any>, // array of objects to choose from
   label?: string,       // label for dropdown
-  filterTitle?: string,
+  filterTitle?: string, // title for heading above the filter
   filterBy?: string,    // string name of key to filter by, passed from filter options
   filterKey?: string    // string name of key from filterOptions input to filter
 }
