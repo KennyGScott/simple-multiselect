@@ -1,6 +1,6 @@
 <div class="simple-multiselect">
   <div *ngIf="!!filterSettings">
-    <select [(ngModel)]="selectedFilter">
+    <select [(ngModel)]="selectedFilter" (change)="handleFilter()">
       <option value="all" selected="true">Show All</option>
       <option *ngFor="let option of filterSettings.options" [value]="option[filterSettings.filterBy]">{{option[filterSettings.label]}}</option>
     </select>
@@ -9,7 +9,8 @@
     <label class="sms-container">Select/Deselect all
       <input class="sms-checkbox"
              type="checkbox"
-             (change)="handleAll()" />
+             (change)="handleAll($event)"
+             [checked]="checkAll" />
       <span class="sms-check"></span>
     </label>
   </div>

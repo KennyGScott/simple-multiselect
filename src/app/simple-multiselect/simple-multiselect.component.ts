@@ -17,29 +17,26 @@ export interface ISimpleMultiselectFilterSettings {
 export class SimpleMultiselectComponent implements OnInit {
   @Input() data: Array<object>
   @Input() titleKey: string
-  @Input() filterSettings: ISimpleMultiselectFilterSettings;
+  @Input() filterSettings: ISimpleMultiselectFilterSettings
   @Output() selected = new EventEmitter()
 
-  public options;
-  public checkAll = false;
-  public selectedFilter: any = 'all';
-
-  constructor() { }
+  public options
+  public checkAll = false
+  public selectedFilter: any = 'all'
+  private filteredOptions
 
   ngOnInit() {
     this.initOptions()
   }
-  handleFilter(option) {
-    const selectedFilter = this.selectedFilter
-    if (selectedFilter == true) return true
-    return selectedFilter == option[this.filterSettings.filterKey]
-  }
+
   /**
    * @method initOptions handles initialization of selectable options
    * @param selected optional - manually overrides current value of item.selected
    */
-  initOptions(selected: boolean = false, filtered: boolean = false) {
-    this.options = this.data.slice()
+  initOptions(selected: boolean = false, filtered = false) {
+    const defaultData = this.data.slice()
+    const options = (filtered) ? this.filteredOptions : defaultData
+    this.options = options
     for (let i = this.options.length; i--;)
       this.options[i]['selected'] = selected
   }
@@ -51,24 +48,37 @@ export class SimpleMultiselectComponent implements OnInit {
   checkHandler(item) {
     const selected = !item.selected
     item.selected = selected
-    this.returnData();
+    this.returnData()
   }
 
   /**
    * @method handleAll handles the select all and deselct all
+   * @param selectOverride 'all': selects all items, 'none': deselects all items, undefined defaults to value of this.checkAll
    */
-  handleAll() {
-    this.checkAll = !this.checkAll
+  handleAll(event) {
+    this.checkAll = event.target.checked
     this.initOptions(this.checkAll)
-    this.returnData();
+    this.returnData()
   }
 
   /**
-   * @method returnData emits the selected event to pass the selected options to this components parent
+   * @method handleFilter handle the filtering of options
+   */
+  handleFilter() {
+    this.checkAll = false
+    this.initOptions()
+    if (this.selectedFilter !== 'all') {
+      this.filteredOptions = this.options.filter((option) => option[this.filterSettings.filterKey] == this.selectedFilter)
+      this.initOptions(false, true)
+    }
+    this.returnData()
+  }
+
+  /**
+   * @method returnData emits the selected event and sends selected options to component's parent
    */
   returnData() {
-    let selectedOptions = [];
-    selectedOptions = this.options.filter((opt) => opt.selected == true)
+    const selectedOptions = this.options.filter((opt) => opt.selected == true)
     this.selected.emit(selectedOptions)
   }
 }
