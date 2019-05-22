@@ -98,11 +98,11 @@ export class SimpleMultiselectComponent implements OnInit {
   }
 
   /**
-   * @method handleAll handles the select all and deselct all
+   * @method handleSelectAll handles the select all and deselect all functionality
    * @param selectOverride 'all': selects all items, 'none': deselects all items, undefined defaults to value of this.checkAll
    */
-  handleAll(event) {
-    this.checkAll = event.target.checked
+  handleSelectAll(state) {
+    this.checkAll = state
     this.initOptions(this.checkAll, this.isFiltered)
     this.returnData()
   }

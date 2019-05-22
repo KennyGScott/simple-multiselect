@@ -17,14 +17,13 @@
   </div>
   <div class="results"
        *ngIf="options.length > 0; else noResults">
-    <div>
-      <label class="sms-container">{{ translations.selectAll }}/{{ translations.deselectAll }}
-        <input class="sms-checkbox"
-               type="checkbox"
-               (change)="handleAll($event)"
-               [checked]="checkAll" />
-        <span class="sms-check"></span>
-      </label>
+    <div class="sms-select-container">
+      <button (click)="handleSelectAll(true)">
+        {{ translations.selectAll }}
+      </button>
+      <button (click)="handleSelectAll(false)">
+        {{ translations.deselectAll }}
+      </button>
     </div>
     <ng-container *ngFor="let option of options">
       <div *ngIf="isDisplayed(option)">
