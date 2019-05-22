@@ -1,12 +1,10 @@
 <div class="simple-multiselect">
-
   <div>
     <input type="text"
            [(ngModel)]="searchText"
            (ngModelChange)="handleSearch()"
            [placeholder]="translations.searchPlaceholder">
   </div>
-
   <div *ngIf="!!filterSettings">
     <h3>{{ filterSettings.filterTitle }}</h3>
     <select [(ngModel)]="selectedFilter"
@@ -17,7 +15,6 @@
               [value]="option[filterSettings.filterBy]">{{option[filterSettings.label]}}</option>
     </select>
   </div>
-
   <div class="results"
        *ngIf="options.length > 0; else noResults">
     <div>

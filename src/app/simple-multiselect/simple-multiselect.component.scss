@@ -57,6 +57,7 @@ $dark-gray: #aaa;
 .sms-container input:checked ~ .sms-check {
   background-color: $pogo-green;
 }
+
 .sms-container:hover input:checked ~ .sms-check {
   border-color: $pogo-green;
 }
@@ -64,6 +65,7 @@ $dark-gray: #aaa;
 .sms-container input:checked ~ .sms-check {
   border-color: $pogo-green;
 }
+
 .sms-check:after {
   content: "";
   position: absolute;
