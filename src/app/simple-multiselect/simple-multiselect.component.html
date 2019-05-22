@@ -3,7 +3,8 @@
   <div>
     <input type="text"
            [(ngModel)]="searchText"
-           (ngModelChange)="handleSearch()">
+           (ngModelChange)="handleSearch()"
+           [placeholder]="translations.searchPlaceholder">
   </div>
 
   <div *ngIf="!!filterSettings">
@@ -11,7 +12,7 @@
     <select [(ngModel)]="selectedFilter"
             (change)="handleFilter()">
       <option value="all"
-              selected="true">Show All</option>
+              selected="true">{{ translations.showAll }}</option>
       <option *ngFor="let option of filterSettings.options"
               [value]="option[filterSettings.filterBy]">{{option[filterSettings.label]}}</option>
     </select>
@@ -20,7 +21,7 @@
   <div class="results"
        *ngIf="options.length > 0; else noResults">
     <div>
-      <label class="sms-container">Select/Deselect all
+      <label class="sms-container">{{ translations.selectAll }}/{{ translations.deselectAll }}
         <input class="sms-checkbox"
                type="checkbox"
                (change)="handleAll($event)"
@@ -40,5 +41,5 @@
       </div>
     </ng-container>
   </div>
-  <ng-template #noResults>No options to show</ng-template>
+  <ng-template #noResults>{{ translations.noResults  }}</ng-template>
 </div>

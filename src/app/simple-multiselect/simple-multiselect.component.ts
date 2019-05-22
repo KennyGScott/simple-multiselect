@@ -8,6 +8,14 @@ export interface ISimpleMultiselectFilterSettings {
   filterKey?: string    // string name of key from filterOptions input to filter
 }
 
+export interface ISimpleMultiSelectTranslations {
+  searchPlaceholder?: string,
+  selectAll?: string,
+  deselectAll?: string,
+  showAll?: string,
+  noResults?: string
+}
+
 @Component({
   selector: 'simple-multiselect',
   templateUrl: './simple-multiselect.component.html',
@@ -18,17 +26,41 @@ export class SimpleMultiselectComponent implements OnInit {
   @Input() data: Array<object>
   @Input() titleKey: string
   @Input() filterSettings: ISimpleMultiselectFilterSettings
+  @Input() translationSettings: ISimpleMultiSelectTranslations
   @Output() selected = new EventEmitter()
 
   public options
   public checkAll = false
   public selectedFilter: any = 'all'
   public searchText = ''
+  public translations: ISimpleMultiSelectTranslations
   private filteredOptions
   private isFiltered = false
 
   ngOnInit() {
+    this.setTranslations()
     this.initOptions()
+  }
+
+  get defaultTranslations() {
+    const defaults: ISimpleMultiSelectTranslations = {
+      searchPlaceholder: 'Search...',
+      selectAll: 'Select All',
+      deselectAll: 'Deselect All',
+      showAll: 'Show All',
+      noResults: 'No results to display'
+    }
+    return defaults
+  }
+
+  /**
+   * @method setTranslations sets the user supplied or default translation values
+   */
+  setTranslations() {
+    if (!this.translationSettings)
+      this.translations = this.defaultTranslations
+    else
+      this.translations = this.translationSettings
   }
 
   /**
