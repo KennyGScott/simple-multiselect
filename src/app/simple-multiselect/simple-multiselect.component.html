@@ -1,5 +1,5 @@
 <div class="simple-multiselect">
-  <div>
+  <div *ngIf="showSearch">
     <input type="text"
            [(ngModel)]="searchText"
            (ngModelChange)="handleSearch()"
@@ -27,7 +27,7 @@
       </label>
     </div>
     <ng-container *ngFor="let option of options">
-      <div *ngIf="selectedFilter == option[filterSettings.filterKey] || selectedFilter == 'all'">
+      <div *ngIf="isSelected(option)">
         <label class="sms-container">{{ option[titleKey] }}
           <input class="sms-checkbox"
                  type="checkbox"

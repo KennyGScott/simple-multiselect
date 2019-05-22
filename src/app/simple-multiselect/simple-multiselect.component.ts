@@ -25,6 +25,7 @@ export interface ISimpleMultiSelectTranslations {
 export class SimpleMultiselectComponent implements OnInit {
   @Input() data: Array<object>
   @Input() titleKey: string
+  @Input() showSearch = false
   @Input() filterSettings: ISimpleMultiselectFilterSettings
   @Input() translationSettings: ISimpleMultiSelectTranslations
   @Output() selected = new EventEmitter()
@@ -51,6 +52,13 @@ export class SimpleMultiselectComponent implements OnInit {
       noResults: 'No results to display'
     }
     return defaults
+  }
+
+  isSelected(option) {
+    if (!!this.filterSettings)
+      return this.selectedFilter == option[this.filterSettings.filterKey] || this.selectedFilter == 'all'
+    else
+      return true
   }
 
   /**
