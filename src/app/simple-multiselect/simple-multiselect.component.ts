@@ -40,9 +40,9 @@ export class SimpleMultiselectComponent implements OnInit {
   private isFiltered = false
 
   ngOnInit() {
-    this.setTranslations()
-    this.initOptions()
     this.checkAll = this.startChecked
+    this.setTranslations()
+    this.initOptions(this.startChecked)
   }
 
   get defaultTranslations() {
