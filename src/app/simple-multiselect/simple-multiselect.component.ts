@@ -26,6 +26,7 @@ export class SimpleMultiselectComponent implements OnInit {
   @Input() data: Array<object>
   @Input() titleKey: string
   @Input() showSearch = false
+  @Input() startChecked = false
   @Input() filterSettings: ISimpleMultiselectFilterSettings
   @Input() translationSettings: ISimpleMultiSelectTranslations
   @Output() selected = new EventEmitter()
@@ -41,6 +42,7 @@ export class SimpleMultiselectComponent implements OnInit {
   ngOnInit() {
     this.setTranslations()
     this.initOptions()
+    this.checkAll = this.startChecked
   }
 
   get defaultTranslations() {
