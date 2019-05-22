@@ -5,7 +5,7 @@ export interface ISimpleMultiselectFilterSettings {
   label?: string,       // label for dropdown
   filterTitle?: string, // title for heading above the filter
   filterBy?: string,    // string name of key to filter by, passed from filter options
-  filterKey?: string    // string name of key from filterOptions input to filter
+  filterKey?: string    // string name of key from options input to filter
 }
 
 export interface ISimpleMultiSelectTranslations {
