@@ -99,7 +99,7 @@ export class SimpleMultiselectComponent implements OnInit {
    */
   handleAll(event) {
     this.checkAll = event.target.checked
-    this.initOptions(this.checkAll)
+    this.initOptions(this.checkAll, this.isFiltered)
     this.returnData()
   }
 
@@ -122,6 +122,9 @@ export class SimpleMultiselectComponent implements OnInit {
       this.isFiltered = true
       this.filteredOptions = this.options.filter((option) => option[this.filterSettings.filterKey] == this.selectedFilter)
       this.initOptions(false, true)
+    }
+    else {
+      this.isFiltered = false
     }
     this.returnData()
   }
