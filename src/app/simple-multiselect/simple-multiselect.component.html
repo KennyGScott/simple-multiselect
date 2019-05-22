@@ -27,7 +27,7 @@
       </label>
     </div>
     <ng-container *ngFor="let option of options">
-      <div *ngIf="isSelected(option)">
+      <div *ngIf="isDisplayed(option)">
         <label class="sms-container">{{ option[titleKey] }}
           <input class="sms-checkbox"
                  type="checkbox"

@@ -9,11 +9,11 @@ export interface ISimpleMultiselectFilterSettings {
 }
 
 export interface ISimpleMultiSelectTranslations {
-  searchPlaceholder?: string,
-  selectAll?: string,
-  deselectAll?: string,
-  showAll?: string,
-  noResults?: string
+  searchPlaceholder?: string, // placeholder text for search box
+  selectAll?: string,         // select all label
+  deselectAll?: string,       // deselect all label
+  showAll?: string,           // show all filter label
+  noResults?: string          // text displayed when no options are found when searching or filtering
 }
 
 @Component({
@@ -54,7 +54,11 @@ export class SimpleMultiselectComponent implements OnInit {
     return defaults
   }
 
-  isSelected(option) {
+  /**
+   * @method isDisplayed handles display logic for options
+   * @param option the current option object
+   */
+  isDisplayed(option) {
     if (!!this.filterSettings)
       return this.selectedFilter == option[this.filterSettings.filterKey] || this.selectedFilter == 'all'
     else
@@ -108,8 +112,8 @@ export class SimpleMultiselectComponent implements OnInit {
    */
   handleSearch() {
     this.initOptions()
-    if (this.searchText !== '')
-      this.options = this.options.filter(option => option[this.titleKey].toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
+    if (this.searchText == '') return
+    this.options = this.options.filter(option => option[this.titleKey].toLowerCase().indexOf(this.searchText.toLowerCase()) > -1)
   }
 
   /**
@@ -118,13 +122,13 @@ export class SimpleMultiselectComponent implements OnInit {
   handleFilter() {
     this.checkAll = false
     this.initOptions()
-    if (this.selectedFilter !== 'all') {
+    if (this.selectedFilter == 'all') {
+      this.isFiltered = false
+    }
+    else {
       this.isFiltered = true
       this.filteredOptions = this.options.filter((option) => option[this.filterSettings.filterKey] == this.selectedFilter)
       this.initOptions(false, true)
-    }
-    else {
-      this.isFiltered = false
     }
     this.returnData()
   }
@@ -133,7 +137,7 @@ export class SimpleMultiselectComponent implements OnInit {
    * @method returnData emits the selected event and sends selected options to component's parent
    */
   returnData() {
-    const selectedOptions = this.options.filter((opt) => opt.selected == true)
+    const selectedOptions = this.options.filter((option) => option.selected == true)
     this.selected.emit(selectedOptions)
   }
 }
