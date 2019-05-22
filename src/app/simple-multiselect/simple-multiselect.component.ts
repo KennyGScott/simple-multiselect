@@ -26,6 +26,7 @@ export class SimpleMultiselectComponent implements OnInit {
   public searchText = ''
   private filteredOptions
   private isFiltered = false
+
   ngOnInit() {
     this.initOptions()
   }
