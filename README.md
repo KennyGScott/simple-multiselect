@@ -5,7 +5,7 @@
 2. ~~Select/deselect all~~
 3. ~~Search~~
 4. Proper styling
-5. Text Translations
+5. Translation Support
 6. Cleanup & refactor
 7. Test on dev
 8. Release
