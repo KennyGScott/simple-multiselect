@@ -1,3 +1,3 @@
 # SimpleMultiselect
 
-No longer maintained and not secure. 
+No longer maintained and may contain vulnerabilities.
